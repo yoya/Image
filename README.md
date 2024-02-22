@@ -2,10 +2,9 @@
 
 画像関連のもろもろ
 
-## test/standard/
+## test/basic/
 
 画像の基本的なテストサンプル生成スクリプト。
-
 
 # Reference
 
