@@ -36,6 +36,11 @@ $IM_CONV $OUTPUT_DIR/$SAMPLE_RGBY.png -colorspace CMYK "$OUTPUT_COLORSPACE_DIR/$
 
 # Palette
 
+OUTPUT_PALETTE_DIR="$OUTPUT_DIR/palette"
+mkdir -p $OUTPUT_PALETTE_DIR
+
+$IM_CONV $OUTPUT_DIR/$SAMPLE_RGBY.png -type palette "$OUTPUT_PALETTE_DIR/$SAMPLE_RGBY-palette.png"
+
 # Bitdepth
 
 # Alpha plane
