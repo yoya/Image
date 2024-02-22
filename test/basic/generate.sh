@@ -8,17 +8,31 @@ set -euo pipefail
 OUTPUT_DIR="output"
 mkdir -p $OUTPUT_DIR
 
+IM_CONV=convert
+
 # Sample File
 
-SAMPLE_RGBY="RGBY.png"
+SAMPLE_RGBY="RGBY"
 
-convert -size 100x75 -font .New-York-Italic -pointsize 64 \
-     -fill white -stroke black -strokewidth 1 -gravity center \
-     \( \( xc:red  -annotate 0 R \) \( xc:green1 -annotate 0 G \) +append \) \
-     \( \( xc:blue -annotate 0 B \) \( xc:yellow -annotate 0 Y \) +append \) \
-     -append -depth 1 -strip $OUTPUT_DIR/$SAMPLE_RGBY
+$IM_CONV -size 100x75 -font .New-York-Italic -pointsize 64 \
+    -fill white -stroke black -strokewidth 1 -gravity center \
+    \( \( xc:red  -annotate 0 R \) \( xc:green1 -annotate 0 G \) +append \) \
+    \( \( xc:blue -annotate 0 B \) \( xc:yellow -annotate 0 Y \) +append \) \
+    -append -depth 1 -strip $OUTPUT_DIR/$SAMPLE_RGBY.png
+$IM_CONV $OUTPUT_DIR/$SAMPLE_RGBY.png $OUTPUT_DIR/$SAMPLE_RGBY.jpg
 
-# Grayscale/Color
+# ColorSpace Grayscale / RGB / CMYK
+
+OUTPUT_COLORSPACE_DIR="$OUTPUT_DIR/colospace"
+mkdir -p $OUTPUT_COLORSPACE_DIR
+
+$IM_CONV $OUTPUT_DIR/$SAMPLE_RGBY.png -type grayscale "$OUTPUT_COLORSPACE_DIR/$SAMPLE_RGBY-gray.png"
+$IM_CONV $OUTPUT_DIR/$SAMPLE_RGBY.png -type grayscale "$OUTPUT_COLORSPACE_DIR/$SAMPLE_RGBY-gray.jpg"
+
+$IM_CONV $OUTPUT_DIR/$SAMPLE_RGBY.png "$OUTPUT_COLORSPACE_DIR/$SAMPLE_RGBY-rgb.png"
+$IM_CONV $OUTPUT_DIR/$SAMPLE_RGBY.png "$OUTPUT_COLORSPACE_DIR/$SAMPLE_RGBY-rgb.jpg"
+
+$IM_CONV $OUTPUT_DIR/$SAMPLE_RGBY.png -colorspace CMYK "$OUTPUT_COLORSPACE_DIR/$SAMPLE_RGBY-cmyk.jpg"
 
 # Palette
 
