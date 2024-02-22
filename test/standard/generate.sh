@@ -20,7 +20,11 @@ convert -size 100x75 -font .New-York-Italic -pointsize 64 \
  
 # Grayscale/Color
 
+# Palette
+
 # Bitdepth
+
+# Alpha plane
 
 # Exif Orientation
 
@@ -50,8 +54,8 @@ done
 
 # DPI metadata
 
+# Interlace
+
 # Spacial Size
 
 # File Size
-
-# Alpha plane
