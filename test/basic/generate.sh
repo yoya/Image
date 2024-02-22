@@ -26,6 +26,8 @@ convert -size 100x75 -font .New-York-Italic -pointsize 64 \
 
 # Alpha plane
 
+# Chroma subsampling
+
 # Exif Orientation
 
 ORIGINAL_SUFFIX="_original" # exiftool の-delete-original が動かないので
