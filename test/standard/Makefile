@@ -1,0 +1,2 @@
+all:
+	sh generate.sh
