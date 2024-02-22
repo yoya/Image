@@ -17,7 +17,7 @@ convert -size 100x75 -font .New-York-Italic -pointsize 64 \
      \( \( xc:red  -annotate 0 R \) \( xc:green1 -annotate 0 G \) +append \) \
      \( \( xc:blue -annotate 0 B \) \( xc:yellow -annotate 0 Y \) +append \) \
      -append -depth 1 -strip $OUTPUT_DIR/$SAMPLE_RGBY
- 
+
 # Grayscale/Color
 
 # Palette
@@ -27,6 +27,8 @@ convert -size 100x75 -font .New-York-Italic -pointsize 64 \
 # Alpha plane
 
 # Chroma subsampling
+
+# ICC Profile
 
 # Exif Orientation
 
@@ -55,6 +57,8 @@ do
 done
 
 # DPI metadata
+
+# GPS Info
 
 # Interlace
 
