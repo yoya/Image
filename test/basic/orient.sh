@@ -17,9 +17,9 @@ for i in `seq 1 8` ;
   for p in jpg png ;
     do
       FILE_ORIENT="$OUTPUT_ORIENT_DIR/$SAMPLE_RGBY-$i.$p"
-      echo $FILE_ORIENT
+#      echo $FILE_ORIENT
       cp $FILE.$p $FILE_ORIENT
-      exiftool -Orientation=$i -n $FILE_ORIENT
+      exiftool -q -Orientation=$i -n $FILE_ORIENT
       rm $FILE_ORIENT$ORIGINAL_SUFFIX
       case $i in
         "2") mogrify             -flop $FILE_ORIENT ;;
