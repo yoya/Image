@@ -45,6 +45,12 @@ $IM_CONV $OUTPUT_DIR/$SAMPLE_RGBY.png -type palette "$OUTPUT_PALETTE_DIR/$SAMPLE
 # Chroma subsampling
 
 # ICC Profile
+echo "ICC Profile"
+
+OUTPUT_ICCPROF_DIR="$OUTPUT_DIR/iccprof"
+mkdir -p $OUTPUT_ICCPROF_DIR
+
+sh ./iccprof.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_ICCPROF_DIR
 
 # Exif Orientation
 echo "Exif Orientation"
