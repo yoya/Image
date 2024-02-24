@@ -28,8 +28,6 @@ echo "ColorSpace"
 OUTPUT_COLORSPACE_DIR="$OUTPUT_DIR/colospace"
 sh ./colorspace.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_COLORSPACE_DIR
 
-
-
 # Palette
 echo "Palette"
 
@@ -39,6 +37,8 @@ mkdir -p $OUTPUT_PALETTE_DIR
 $IM_CONV $OUTPUT_DIR/$SAMPLE_RGBY.png -type palette "$OUTPUT_PALETTE_DIR/$SAMPLE_RGBY-palette.png"
 
 # Bitdepth
+
+
 
 # Alpha plane
 
@@ -65,7 +65,8 @@ sh ./orient.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_ORIENT_DIR
 # Thumbnail
 
 
-# Interlace
+# Interlace / Progressive
+
 
 # Spacial Size
 
