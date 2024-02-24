@@ -37,10 +37,10 @@ mkdir -p $OUTPUT_PALETTE_DIR
 $IM_CONV $OUTPUT_DIR/$SAMPLE_RGBY.png -type palette "$OUTPUT_PALETTE_DIR/$SAMPLE_RGBY-palette.png"
 
 # Bitdepth
-
-
+echo "Bitdepth"
 
 # Alpha plane
+echo "Alpha plane"
 
 # Chroma subsampling
 
@@ -48,8 +48,6 @@ $IM_CONV $OUTPUT_DIR/$SAMPLE_RGBY.png -type palette "$OUTPUT_PALETTE_DIR/$SAMPLE
 echo "ICC Profile"
 
 OUTPUT_ICCPROF_DIR="$OUTPUT_DIR/iccprof"
-mkdir -p $OUTPUT_ICCPROF_DIR
-
 sh ./iccprof.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_ICCPROF_DIR
 
 # Exif Orientation
@@ -59,15 +57,19 @@ OUTPUT_ORIENT_DIR="$OUTPUT_DIR/orient"
 sh ./orient.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_ORIENT_DIR
 
 # DPI metadata
+echo "DPI metadata"
 
 # GPS Info
+echo "GPS Info"
 
 # Thumbnail
-
+echo "Thumbnail"
 
 # Interlace / Progressive
-
+echo "Interlace / Progressive"
 
 # Spacial Size
+echo "Spacial Size"
 
 # File Size
+echo "File Size"
