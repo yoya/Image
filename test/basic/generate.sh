@@ -46,6 +46,10 @@ sh ./bitdepth.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_BITDEPTH_DIR
 echo "Alpha plane"
 
 # Chroma subsampling
+echo "Chroma subsampling"
+
+OUTPUT_CHROMASUB_DIR="$OUTPUT_DIR/chromasub"
+sh ./chromasub.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_CHROMASUB_DIR
 
 # ICC Profile
 echo "ICC Profile"
