@@ -40,36 +40,7 @@ $IM_CONV $OUTPUT_DIR/$SAMPLE_RGBY.png -type palette "$OUTPUT_PALETTE_DIR/$SAMPLE
 echo "Bitdepth"
 
 OUTPUT_BITDEPTH_DIR="$OUTPUT_DIR/bitdepth"
-mkdir -p $OUTPUT_BITDEPTH_DIR
-FILL_COLOR=Green1
-
-
-for d in 1 2 4 8 16;  # Grayscale
-  do
-      $IM_CONV $OUTPUT_DIR/$SAMPLE_RGBY.png \
-               -type Grayscale -depth $d \
-               -define png:color-type=0 -define png:bit-depth=$d \
-               "$OUTPUT_BITDEPTH_DIR/${SAMPLE_RGBY}-gray-depth${d}.png"
-done
-
-
-for d in 8 16;  # TrueColor
-  do
-      $IM_CONV $OUTPUT_DIR/$SAMPLE_RGBY.png \
-               -type Grayscale -depth $d -colorspace sRGB \
-               -fill $FILL_COLOR -opaque White -background $FILL_COLOR \
-               -define png:color-type=2 -define png:bit-depth=$d \
-               "$OUTPUT_BITDEPTH_DIR/${SAMPLE_RGBY}-true-depth${d}.png"
-done
-
-for d in 1 2 4 8 ;  # Palette
-  do
-      $IM_CONV $OUTPUT_DIR/$SAMPLE_RGBY.png \
-               -type Grayscale -depth $d -colorspace sRGB \
-               -fill $FILL_COLOR -opaque White -background $FILL_COLOR \
-               -define png:color-type=3 -define png:bit-depth=$d \
-               "$OUTPUT_BITDEPTH_DIR/${SAMPLE_RGBY}-palette-depth${d}.png"
-done
+sh ./bitdepth.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_BITDEPTH_DIR
 
 # Alpha plane
 echo "Alpha plane"
