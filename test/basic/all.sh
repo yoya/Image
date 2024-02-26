@@ -45,6 +45,8 @@ sh ./bitdepth.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_BITDEPTH_DIR
 # Alpha plane
 echo "Alpha plane"
 
+
+
 # Chroma subsampling
 echo "Chroma subsampling"
 

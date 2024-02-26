@@ -1,5 +1,5 @@
 all:
-	sh generate.sh
+	sh all.sh
 
 clean:
 	rm -rf output
