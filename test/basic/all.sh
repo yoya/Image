@@ -77,6 +77,9 @@ echo "Thumbnail"
 # Interlace / Progressive
 echo "Interlace / Progressive"
 
+OUTPUT_INTERLACE_DIR="$OUTPUT_DIR/interlace"
+sh ./interlace.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_INTERLACE_DIR
+
 # Spacial Size
 echo "Spacial Size"
 
