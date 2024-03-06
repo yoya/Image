@@ -76,6 +76,9 @@ echo "GPS Info"
 # Thumbnail
 echo "Thumbnail"
 
+OUTPUT_THUMB_DIR="$OUTPUT_DIR/thumb"
+sh ./thumb.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_THUMB_DIR
+
 # Interlace / Progressive
 echo "Interlace / Progressive"
 
