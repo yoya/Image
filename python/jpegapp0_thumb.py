@@ -2,6 +2,9 @@ import sys, os, math, struct
 import cv2
 import numpy as np
 
+def deleteThumbnail(infile):
+    print("deleteThumbnail not implemented yet")
+    return False
 
 def insertThumbnail(infile, thumbfile):
     with open(infile, "rb") as f:
@@ -60,6 +63,9 @@ def extractThumbnail(infile):
         app0next12bytes = f.read(12)  # app0
         app0last2bytes = f.read(2)  # app0 thumbnail size XY
         width, height = struct.unpack("2B", app0last2bytes)
+        if width == 0 or height == 0:
+            print("app0 thumbnail width == 0 or height == 0")
+            return False
         thumbData = f.read(3 * width * height)
         arr = np.frombuffer(thumbData, dtype=np.uint8)        
         im = arr.reshape((height, width, 3))
@@ -70,21 +76,31 @@ def extractThumbnail(infile):
     
 thumbfile = None
 
-if len(sys.argv) < 2:
+if len(sys.argv) <= 1:
     prog = sys.argv[0]
-    print("Usage: {} [jpegfile [thumbfile]]".format(prog))
-    print("Usage: {} input.jpg  # extract thumb image".format(prog))
-    print("Usage: {} input.jpg thumb.png  # insert thumb image".format(prog))
-elif len(sys.argv) < 3:
-    prog, infile = sys.argv
+    print("Usage: {} -[d|e|i] [jpegfile [thumbfile]]".format(prog))
+    print("Usage: {} -d input.jpg  # delete".format(prog))
+    print("Usage: {} -e input.jpg  # extract".format(prog))
+    print("Usage: {} -i input.jpg thumb.png  # insert".format(prog))
+    exit (0)
+
+method = sys.argv[1]
+
+if method == "-d":
+    infile = sys.argv[2]
+    ret = deleteThumbnail(infile)
+elif method == "-e":
+    infile = sys.argv[2]
     ret = extractThumbnail(infile)
-    if not ret:
-        exit (1)
-else:
-    prog, infile, thumbfile = sys.argv
+elif method == "-i":
+    infile, thumbfile = sys.argv[2:]
     ret = insertThumbnail(infile, thumbfile)
-    if not ret:
-        exit (1)
+else:
+    print("option error")
+    ret = False
+
+if not ret:
+    exit (1)
 
 exit (0)
 
