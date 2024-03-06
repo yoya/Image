@@ -79,8 +79,8 @@ thumbfile = None
 if len(sys.argv) <= 1:
     prog = sys.argv[0]
     print("Usage: {} -[d|e|i] [jpegfile [thumbfile]]".format(prog))
-    print("Usage: {} -d input.jpg  # delete".format(prog))
-    print("Usage: {} -e input.jpg  # extract".format(prog))
+    print("Usage: {} -d input.jpg  # delete APP0 thumbnail".format(prog))
+    print("Usage: {} -e input.jpg  # extract & save as PNG".format(prog))
     print("Usage: {} -i input.jpg thumb.png  # insert".format(prog))
     exit (0)
 
