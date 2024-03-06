@@ -1,7 +1,7 @@
-import sys, os
+import sys, os, math, struct
 import cv2
 import numpy as np
-import struct
+
 
 def insertThumbnail(infile, thumbfile):
     with open(infile, "rb") as f:
@@ -14,14 +14,30 @@ def insertThumbnail(infile, thumbfile):
             print("thumbnail file not found")
             return False;
         (height, width, comp) = im.shape
-        arr = np.ravel(im)  # volume array to flatten
-        app0first2bytes = f.read(2)  # app0 size
-        app0next12bytes = f.read(12)  # app0
-        app0last2bytes = f.read(2)  # app0 thumbnail size XY
         app0size = 16 + 3 * width * height;
         if 0xFF < width or 0xFF < height or 0xFFFF < app0size:
-            print("255 < width({}) or 255 < height({}) or 65535 < app0size({})".format(width, height, app0size))
+            # aspect を維持して画像を縮小
+            if 0xFF < width:
+                height = math.floor(height * 0xFF / width)
+                width = 0xFF
+            if 0xFF < height:
+                width = math.floor(width * 0xFF / height)
+                height = 0xFF
+            app0size = 16 + 3 * width * height;
+            if 0xFFFF < app0size:
+                app0size = 16 + 3 * width * height;
+                scale = math.sqrt(0xFFFF / app0size)
+                width = math.floor(width * scale)
+                height = math.floor(height * scale)
+            im = cv2.resize(im, (width, height))
+        app0size = 16 + 3 * width * height;
+        if 0xFFFF < app0size:  # 念の為
+            print("width({}), heighg({}), 65535 < app0size({})".format(width, height, app0size))
             return False;
+        arr = np.ravel(im)  # volume array to flatten
+        app0first2bytes = f.read(2)  # app0 size
+        app0next12bytes = f.read(12)  # app0 payload middle
+        app0last2bytes = f.read(2)  # app0 thumbnail size XY
         thumbX = struct.pack("B", width)
         thumbY = struct.pack("B", height)
         imRGB = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
