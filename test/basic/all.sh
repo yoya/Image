@@ -70,6 +70,9 @@ sh ./orient.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_ORIENT_DIR
 # DPI metadata
 echo "DPI metadata"
 
+OUTPUT_DPI_DIR="$OUTPUT_DIR/dpi"
+sh ./dpi.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_DPI_DIR
+
 # GPS Info
 echo "GPS Info"
 
