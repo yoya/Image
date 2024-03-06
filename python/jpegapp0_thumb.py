@@ -26,9 +26,7 @@ def insertThumbnail(infile, thumbfile):
         thumbY = struct.pack("B", height)
         imRGB = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
         thumbData = imRGB.tobytes()
-        # print("thumbX,Y", thumbX, thumbY, thumbData)
-        # print("app0size", app0size)
-        app0first2bytes = struct.pack(">H", 3 * width * height)
+        app0first2bytes = struct.pack(">H", 16 + 3 * width * height)
         # output
         for d in [fist4bytes,
                   app0first2bytes, app0next12bytes, thumbX, thumbY, thumbData]:
