@@ -2,10 +2,6 @@ import sys, os, math, struct
 import cv2
 import numpy as np
 
-def deleteThumbnail(infile):
-    print("deleteThumbnail not implemented yet")
-    return False
-
 def insertThumbnail(infile, thumbfile):
     with open(infile, "rb") as f:
         fist4bytes = f.read(4)
@@ -73,8 +69,30 @@ def extractThumbnail(infile):
         # print(width, height, im.shape)
         sys.stdout.buffer.write(cv2.imencode(".png", imBGR)[1].tobytes())
     return True
-    
-thumbfile = None
+def deleteThumbnail(infile):
+    with open(infile, "rb") as f:
+        fist4bytes = f.read(4)
+        if fist4bytes != b"\xff\xd8\xff\xe0":
+            print("APP0 not found")
+            return False;
+        app0first2bytes = f.read(2)   # app0 size
+        app0next12bytes = f.read(12)  # app0 payload middle
+        app0last2bytes = f.read(2)    # app0 thumbnail size XY
+        jpeg0size = struct.unpack(">H", app0first2bytes)[0]
+        if jpeg0size == 16:
+            print("jpeg0size({}) == 16 (no thumbnail)".format(jpeg0size))
+            return False
+        thumbData = f.read(jpeg0size -  16)  # skip data
+        app0first2bytes = struct.pack(">H", 16)
+        thumbX = struct.pack("B", 0)
+        thumbY = struct.pack("B", 0)
+        # output
+        for d in [fist4bytes,
+                  app0first2bytes, app0next12bytes, thumbX, thumbY]:
+            sys.stdout.buffer.write(d)
+        sys.stdout.buffer.write(f.read())
+        return True
+    return False
 
 if len(sys.argv) <= 1:
     prog = sys.argv[0]
