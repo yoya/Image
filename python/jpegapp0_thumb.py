@@ -38,9 +38,9 @@ def insertThumbnail(infile, thumbfile):
             print("width({}), heighg({}), 65535 < app0size({})".format(width, height, app0size))
             return False;
         arr = np.ravel(im)  # volume array to flatten
-        app0first2bytes = f.read(2)  # app0 size
+        app0first2bytes = f.read(2)   # app0 size
         app0next12bytes = f.read(12)  # app0 payload middle
-        app0last2bytes = f.read(2)  # app0 thumbnail size XY
+        app0last2bytes = f.read(2)    # app0 thumbnail size XY
         thumbX = struct.pack("B", width)
         thumbY = struct.pack("B", height)
         imRGB = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
@@ -59,9 +59,9 @@ def extractThumbnail(infile):
         if fist4bytes != b"\xff\xd8\xff\xe0":
             print("APP0 not found")
             return False;
-        app0first2bytes = f.read(2)  # app0 size
-        app0next12bytes = f.read(12)  # app0
-        app0last2bytes = f.read(2)  # app0 thumbnail size XY
+        app0first2bytes = f.read(2)   # app0 size
+        app0next12bytes = f.read(12)  # app0 payload middle
+        app0last2bytes = f.read(2)    # app0 thumbnail size XY
         width, height = struct.unpack("2B", app0last2bytes)
         if width == 0 or height == 0:
             print("app0 thumbnail width == 0 or height == 0")
