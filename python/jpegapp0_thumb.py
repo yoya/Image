@@ -48,10 +48,10 @@ def extractThumbnail(infile):
         width, height = struct.unpack("2B", app0last2bytes)
         thumbData = f.read(3 * width * height)
         arr = np.frombuffer(thumbData, dtype=np.uint8)        
-        img = arr.reshape((height, width, 3))
-        imgBGR = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+        im = arr.reshape((height, width, 3))
+        imBGR = cv2.cvtColor(im, cv2.COLOR_RGB2BGR)
         # print(width, height, im.shape)
-        sys.stdout.buffer.write(cv2.imencode(".png", imgBGR)[1].tobytes())
+        sys.stdout.buffer.write(cv2.imencode(".png", imBGR)[1].tobytes())
     return True
     
 thumbfile = None
