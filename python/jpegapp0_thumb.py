@@ -1,3 +1,6 @@
+# JPEG APP0 thumbnail edit tool
+# (c) 2024/03/06- yoya@awm.jp
+
 import sys, os, math, struct
 import cv2
 import numpy as np
@@ -91,8 +94,7 @@ def deleteThumbnail(infile):
                   app0first2bytes, app0next12bytes, thumbX, thumbY]:
             sys.stdout.buffer.write(d)
         sys.stdout.buffer.write(f.read())
-        return True
-    return False
+    return True
 
 if len(sys.argv) <= 1:
     prog = sys.argv[0]
