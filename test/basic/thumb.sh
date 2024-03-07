@@ -16,5 +16,5 @@ cp $FILE.jpg $FILE_THUMB
 exiftool -q "-ThumbnailImage<=${FILE}.jpg" $FILE_THUMB
 rm $FILE_THUMB$ORIGINAL_SUFFIX
 
-$PYTHON ../../python/jpegapp0_thumb.py -i ${FILE}.jpg ${FILE}.jpg > \
-        "$OUTPUT_THUMB_DIR/${SAMPLE_RGBY}-app0thumb.jpg"
+$PYTHON ../../python/jfif_thumb.py -i ${FILE}.jpg ${FILE}.jpg > \
+        "$OUTPUT_THUMB_DIR/${SAMPLE_RGBY}-jfifthumb.jpg"
