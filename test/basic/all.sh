@@ -76,6 +76,9 @@ sh ./dpi.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_DPI_DIR
 # GPS Info
 echo "GPS Info"
 
+OUTPUT_GPS_DIR="$OUTPUT_DIR/gps"
+sh ./gps.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_GPS_DIR
+
 # Thumbnail
 echo "Thumbnail"
 
