@@ -1,8 +1,6 @@
 #! /bin/bash
 set -euo pipefail
 
-IM_CONV=convert
-
 SAMPLE_RGBY=$1 ; OUTPUT_DIR=$2 ; OUTPUT_DPI_DIR=$3
 mkdir -p $OUTPUT_DPI_DIR
 
