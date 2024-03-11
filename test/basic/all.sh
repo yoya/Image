@@ -28,13 +28,7 @@ echo "ColorSpace"
 OUTPUT_COLORSPACE_DIR="$OUTPUT_DIR/colospace"
 sh ./colorspace.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_COLORSPACE_DIR
 
-# Palette
-echo "Palette"
-
-OUTPUT_PALETTE_DIR="$OUTPUT_DIR/palette"
-mkdir -p $OUTPUT_PALETTE_DIR
-
-$IM_CONV $OUTPUT_DIR/$SAMPLE_RGBY.png -type palette "$OUTPUT_PALETTE_DIR/$SAMPLE_RGBY-palette.png"
+# Palette - Bitdepth に含まれるので省略
 
 # Bitdepth
 echo "Bitdepth"
@@ -47,7 +41,6 @@ echo "Alpha plane"
 
 OUTPUT_ALPHA_DIR="$OUTPUT_DIR/alpha"
 sh ./alpha.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_ALPHA_DIR
-
 
 # Chroma subsampling
 echo "Chroma subsampling"
