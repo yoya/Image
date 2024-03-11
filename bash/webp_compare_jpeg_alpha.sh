@@ -7,6 +7,8 @@ SAMPLE=rose-vignette.png
 VIGNETTE_VALUE=0  # hard vignette
 # VIGNETTE_VALUE=32x32  # soft vignette
 
+mkdir -p output ; cd output
+
 $IM_COMMAND rose: -resize 240 \( +clone -fill white -colorize 100% \
     -background black -vignette $VIGNETTE_VALUE \) -alpha off \
     -compose copy_opacity -composite  $SAMPLE ;
