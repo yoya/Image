@@ -12,4 +12,6 @@
 
 # output
 
+```
 ./output/*/*.{jpg|png}
+```
