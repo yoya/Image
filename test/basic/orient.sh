@@ -2,9 +2,8 @@
 set -euo pipefail
 
 SAMPLE_RGBY=$1 ; OUTPUT_DIR=$2 ; OUTPUT_ORIENT_DIR="$2/$3"
-mkdir -p $OUTPUT_ORIENT_DIR
 
-ORIGINAL_SUFFIX="_original" # exiftool の-delete-original が動かないので
+mkdir -p $OUTPUT_ORIENT_DIR
 
 FILE=$OUTPUT_DIR/$SAMPLE_RGBY
 
@@ -15,7 +14,7 @@ for i in `seq 1 8` ;
       FILE_ORIENT="$OUTPUT_ORIENT_DIR/$SAMPLE_RGBY-$i.$p"
 #      echo $FILE_ORIENT
       cp $FILE.$p $FILE_ORIENT
-      exiftool -q -Orientation=$i -n $FILE_ORIENT
+      $EXIFTOOL -q -Orientation=$i -n $FILE_ORIENT
       rm $FILE_ORIENT$ORIGINAL_SUFFIX
       case $i in
         "2") mogrify             -flop $FILE_ORIENT ;;

@@ -5,12 +5,17 @@ set -euo pipefail
 # - ImageMagick: https://imagemagick.org/
 # - ExifTool:    https://exiftool.org/
 
-OUTPUT_DIR="output"
-mkdir -p $OUTPUT_DIR
-
-IM_CONV=convert
+export IM_CONVERT=convert  # ImageMagick 6 & legacy 7
+#export IM_CONVERT=magick  # ImageMagick 7
+export PYTHON=python
+export EXIFTOOL=exiftool
+# $EXIFTOOL の-delete-original が動かないので。
+export ORIGINAL_SUFFIX="_original"
 
 SAMPLE_RGBY="RGBY"
+
+OUTPUT_DIR="output"
+mkdir -p $OUTPUT_DIR
 
 # Sample File
 echo "Sample File"
