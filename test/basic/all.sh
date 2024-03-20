@@ -10,10 +10,10 @@ mkdir -p $OUTPUT_DIR
 
 IM_CONV=convert
 
+SAMPLE_RGBY="RGBY"
+
 # Sample File
 echo "Sample File"
-
-SAMPLE_RGBY="RGBY"
 sh ./sample.sh $SAMPLE_RGBY $OUTPUT_DIR
 
 # ColorSpace Grayscale / RGB / CMYK
