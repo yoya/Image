@@ -3,6 +3,7 @@ set -euo pipefail
 
 # require)
 # - ImageMagick: https://imagemagick.org/
+# - Python: https://www.python.org/
 # - ExifTool:    https://exiftool.org/
 
 export IM_CONVERT=convert  # ImageMagick 6 & legacy 7
