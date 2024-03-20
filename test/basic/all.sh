@@ -63,8 +63,6 @@ sh ./thumb.sh $SAMPLE_RGBY $OUTPUT_DIR "thumb"
 echo "Interlace / Progressive"
 sh ./interlace.sh $SAMPLE_RGBY $OUTPUT_DIR "interlace"
 
-# Spacial Size
-echo "Spacial Size"
-
-# File Size
-echo "File Size"
+# Size of Spacial(width/height) & Filevolume
+echo "Size Limit Spacial(width/height) & Filesize"
+sh ./size.sh $SAMPLE_RGBY $OUTPUT_DIR "size"
