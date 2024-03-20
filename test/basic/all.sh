@@ -18,65 +18,45 @@ sh ./sample.sh $SAMPLE_RGBY $OUTPUT_DIR
 
 # ColorSpace Grayscale / RGB / CMYK
 echo "ColorSpace"
-
-OUTPUT_COLORSPACE_DIR="$OUTPUT_DIR/colospace"
-sh ./colorspace.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_COLORSPACE_DIR
+sh ./colorspace.sh $SAMPLE_RGBY $OUTPUT_DIR "color"
 
 # Palette - Bitdepth に含まれるので省略
 
 # Bitdepth
 echo "Bitdepth"
-
-OUTPUT_BITDEPTH_DIR="$OUTPUT_DIR/bitdepth"
-sh ./bitdepth.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_BITDEPTH_DIR
+sh ./bitdepth.sh $SAMPLE_RGBY $OUTPUT_DIR "bitdepth"
 
 # Alpha plane
 echo "Alpha plane"
-
-OUTPUT_ALPHA_DIR="$OUTPUT_DIR/alpha"
-sh ./alpha.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_ALPHA_DIR
+sh ./alpha.sh $SAMPLE_RGBY $OUTPUT_DIR "alpha"
 
 # Chroma subsampling
 echo "Chroma subsampling"
-
-OUTPUT_CHROMASUB_DIR="$OUTPUT_DIR/chromasub"
-sh ./chromasub.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_CHROMASUB_DIR
+sh ./chromasub.sh $SAMPLE_RGBY $OUTPUT_DIR "chromasub"
 
 # ICC Profile
 echo "ICC Profile"
-
-OUTPUT_ICCPROF_DIR="$OUTPUT_DIR/iccprof"
-sh ./iccprof.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_ICCPROF_DIR
+sh ./iccprof.sh $SAMPLE_RGBY $OUTPUT_DIR "iccprof"
 
 # Exif Orientation
 echo "Exif Orientation"
-
-OUTPUT_ORIENT_DIR="$OUTPUT_DIR/orient"
-sh ./orient.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_ORIENT_DIR
+sh ./orient.sh $SAMPLE_RGBY $OUTPUT_DIR "orient"
 
 # DPI metadata
 echo "DPI metadata"
-
-OUTPUT_DPI_DIR="$OUTPUT_DIR/dpi"
-sh ./dpi.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_DPI_DIR
+sh ./dpi.sh $SAMPLE_RGBY $OUTPUT_DIR "dpi"
 
 # GPS Info
 echo "GPS Info"
-
-OUTPUT_GPS_DIR="$OUTPUT_DIR/gps"
-sh ./gps.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_GPS_DIR
+sh ./gps.sh $SAMPLE_RGBY $OUTPUT_DIR "gps"
 
 # Thumbnail
 echo "Thumbnail"
-
-OUTPUT_THUMB_DIR="$OUTPUT_DIR/thumb"
-sh ./thumb.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_THUMB_DIR
+sh ./thumb.sh $SAMPLE_RGBY $OUTPUT_DIR "thumb"
 
 # Interlace / Progressive
 echo "Interlace / Progressive"
-
-OUTPUT_INTERLACE_DIR="$OUTPUT_DIR/interlace"
-sh ./interlace.sh $SAMPLE_RGBY $OUTPUT_DIR $OUTPUT_INTERLACE_DIR
+sh ./interlace.sh $SAMPLE_RGBY $OUTPUT_DIR "interlace"
 
 # Spacial Size
 echo "Spacial Size"

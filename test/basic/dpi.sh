@@ -1,7 +1,7 @@
 #! /bin/bash
 set -euo pipefail
 
-SAMPLE_RGBY=$1 ; OUTPUT_DIR=$2 ; OUTPUT_DPI_DIR=$3
+SAMPLE_RGBY=$1 ; OUTPUT_DIR=$2 ; OUTPUT_DPI_DIR="$2/$3"
 mkdir -p $OUTPUT_DPI_DIR
 
 ORIGINAL_SUFFIX="_original" # exiftool の-delete-original が動かないので

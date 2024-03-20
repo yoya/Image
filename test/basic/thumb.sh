@@ -4,7 +4,7 @@ set -euo pipefail
 IM_CONV=convert
 PYTHON=python
 
-SAMPLE_RGBY=$1 ; OUTPUT_DIR=$2 ; OUTPUT_THUMB_DIR=$3
+SAMPLE_RGBY=$1 ; OUTPUT_DIR=$2 ; OUTPUT_THUMB_DIR="$2/$3"
 mkdir -p $OUTPUT_THUMB_DIR
 
 ORIGINAL_SUFFIX="_original" # exiftool の-delete-original が動かないので

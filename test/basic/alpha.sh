@@ -3,7 +3,7 @@ set -euo pipefail
 
 IM_CONV=convert
 
-SAMPLE_RGBY=$1 ; OUTPUT_DIR=$2 ; OUTPUT_ALPHA_DIR=$3
+SAMPLE_RGBY=$1 ; OUTPUT_DIR=$2 ; OUTPUT_ALPHA_DIR="$2/$3"
 mkdir -p $OUTPUT_ALPHA_DIR
 
 $IM_CONV $OUTPUT_DIR/$SAMPLE_RGBY.png -transparent white \
