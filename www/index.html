@@ -1,11 +1,37 @@
 <html>
   <head>
-    <title> Image Processing Algorithm with JavaScript Code </title>
+    <title> Image Processing by JavaScript </title>
+    <style>
+      body { margin: 0; background-color: #000000 }
+      #app {display: flex; flex-flow: column; width: 100%; height: 100%; }
+      #menu  { background-color: #e0ffe0; width:100%; height:32px; }
+      #body  { display: flex; flex-flow: row; height: 100%; }
+      #left    { background-color: #e0f8ff; min-width:256px; width:256px;}
+      #middle  { background-color: #fffff0; min-width:256px; width:100%; }
+      #right   { background-color: #fff0f8; min-width:256px; width:256px;}
+    </style>
   </head>
   <body>
-    <script src="../js/lib/binding.js"> </script>
-    <script src="index.js"> </script>
+    <div id="app">
+      <div id="menu">
+        global menu
+      </div>
+      <div id="body">
+        <div id="left">
+          src info
+        </div>
+        <div id="middle">
+          view
+        </div>
+        <div id="right">
+          control panel
+        </div>
+      </div>
+    </div>
+    <div id="script">
+      <script src="../js/lib/binding.js"> </script>
+      <script src="index.js"> </script>
+    </div>
   </body>
 </html>
-
 
