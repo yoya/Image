@@ -13,57 +13,57 @@ export EXIFTOOL=exiftool
 # $EXIFTOOL の-delete-original が動かないので。
 export ORIGINAL_SUFFIX="_original"
 
-SAMPLE_RGBY="RGBY"
+export TEST_SAMPLE_RGBY="RGBY"
+export TEST_OUTPUT_DIR="output"
 
-OUTPUT_DIR="output"
-mkdir -p $OUTPUT_DIR
+mkdir -p $TEST_OUTPUT_DIR
 
 # Sample File
 echo "Sample File"
-sh ./sample.sh $SAMPLE_RGBY $OUTPUT_DIR
+sh ./sample.sh
 
 # ColorSpace Grayscale / RGB / CMYK
 echo "ColorSpace"
-sh ./colorspace.sh $SAMPLE_RGBY $OUTPUT_DIR "color"
+sh ./colorspace.sh "color"
 
 # Palette - Bitdepth に含まれるので省略
 
 # Bitdepth
 echo "Bitdepth"
-sh ./bitdepth.sh $SAMPLE_RGBY $OUTPUT_DIR "bitdepth"
+sh ./bitdepth.sh "bitdepth"
 
 # Alpha plane
 echo "Alpha plane"
-sh ./alpha.sh $SAMPLE_RGBY $OUTPUT_DIR "alpha"
+sh ./alpha.sh "alpha"
 
 # Chroma subsampling
 echo "Chroma subsampling"
-sh ./chromasub.sh $SAMPLE_RGBY $OUTPUT_DIR "chromasub"
+sh ./chromasub.sh "chromasub"
 
 # ICC Profile
 echo "ICC Profile"
-sh ./iccprof.sh $SAMPLE_RGBY $OUTPUT_DIR "iccprof"
+sh ./iccprof.sh "iccprof"
 
 # Exif Orientation
 echo "Exif Orientation"
-sh ./orient.sh $SAMPLE_RGBY $OUTPUT_DIR "orient"
+sh ./orient.sh "orient"
 
 # DPI metadata
 echo "DPI metadata"
-sh ./dpi.sh $SAMPLE_RGBY $OUTPUT_DIR "dpi"
+sh ./dpi.sh "dpi"
 
 # GPS Info
 echo "GPS Info"
-sh ./gps.sh $SAMPLE_RGBY $OUTPUT_DIR "gps"
+sh ./gps.sh "gps"
 
 # Thumbnail
 echo "Thumbnail"
-sh ./thumb.sh $SAMPLE_RGBY $OUTPUT_DIR "thumb"
+sh ./thumb.sh "thumb"
 
 # Interlace / Progressive
 echo "Interlace / Progressive"
-sh ./interlace.sh $SAMPLE_RGBY $OUTPUT_DIR "interlace"
+sh ./interlace.sh "interlace"
 
 # Size of Spacial(width/height) & Filevolume
 echo "Size Limit Spacial(width/height) & Filesize"
-sh ./size.sh $SAMPLE_RGBY $OUTPUT_DIR "size"
+sh ./size.sh "size"

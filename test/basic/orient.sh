@@ -1,17 +1,17 @@
 #! /bin/bash
 set -euo pipefail
 
-SAMPLE_RGBY=$1 ; OUTPUT_DIR=$2 ; OUTPUT_ORIENT_DIR="$2/$3"
+OUTPUT_ORIENT_DIR="$TEST_OUTPUT_DIR/$1"
 
 mkdir -p $OUTPUT_ORIENT_DIR
 
-FILE=$OUTPUT_DIR/$SAMPLE_RGBY
+FILE=$TEST_OUTPUT_DIR/$TEST_SAMPLE_RGBY
 
 for i in `seq 1 8` ;
   do
   for p in jpg png ;
     do
-      FILE_ORIENT="$OUTPUT_ORIENT_DIR/$SAMPLE_RGBY-$i.$p"
+      FILE_ORIENT="$OUTPUT_ORIENT_DIR/$TEST_SAMPLE_RGBY-$i.$p"
 #      echo $FILE_ORIENT
       cp $FILE.$p $FILE_ORIENT
       $EXIFTOOL -q -Orientation=$i -n $FILE_ORIENT

@@ -1,15 +1,15 @@
 #! /bin/bash
 set -euo pipefail
 
-SAMPLE_RGBY=$1 ; OUTPUT_DIR=$2 ; OUTPUT_ALPHA_DIR="$2/$3"
+OUTPUT_ALPHA_DIR="$TEST_OUTPUT_DIR/$1"
 
 mkdir -p $OUTPUT_ALPHA_DIR
 
-$IM_CONVERT $OUTPUT_DIR/$SAMPLE_RGBY.png -transparent white \
-            PNG32:"$OUTPUT_ALPHA_DIR/${SAMPLE_RGBY}-truealpha.png"
+$IM_CONVERT $TEST_OUTPUT_DIR/$TEST_SAMPLE_RGBY.png -transparent white \
+            PNG32:"$OUTPUT_ALPHA_DIR/${TEST_SAMPLE_RGBY}-truealpha.png"
 
-$IM_CONVERT $OUTPUT_DIR/$SAMPLE_RGBY.png -transparent white \
-            PNG8:"$OUTPUT_ALPHA_DIR/${SAMPLE_RGBY}-palettealpha.png"
+$IM_CONVERT $TEST_OUTPUT_DIR/$TEST_SAMPLE_RGBY.png -transparent white \
+            PNG8:"$OUTPUT_ALPHA_DIR/${TEST_SAMPLE_RGBY}-palettealpha.png"
 
-$IM_CONVERT $OUTPUT_DIR/$SAMPLE_RGBY.png -transparent white -type grayscale \
-            "$OUTPUT_ALPHA_DIR/${SAMPLE_RGBY}-grayalpha.png"
+$IM_CONVERT $TEST_OUTPUT_DIR/$TEST_SAMPLE_RGBY.png -transparent white -type grayscale \
+            "$OUTPUT_ALPHA_DIR/${TEST_SAMPLE_RGBY}-grayalpha.png"
