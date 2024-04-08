@@ -14,7 +14,6 @@ export EXIFTOOL=exiftool
 export ORIGINAL_SUFFIX="_original"
 
 export TEST_SAMPLE_RGBY="RGBY"
-export TEST_SAMPLE_Format="Format"
 
 export TEST_OUTPUT_DIR="output"
 

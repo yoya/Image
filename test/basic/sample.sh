@@ -9,10 +9,16 @@ $IM_CONVERT -size 100x75 -font .New-York-Italic -pointsize 64 \
 
 $IM_CONVERT $TEST_OUTPUT_DIR/$TEST_SAMPLE_RGBY.png $TEST_OUTPUT_DIR/$TEST_SAMPLE_RGBY.jpg
 
-for f in jpg png gif webp ;
+OUTPUT_FORMAT_DIR="$TEST_OUTPUT_DIR/format"
+mkdir -p $OUTPUT_FORMAT_DIR
+
+for s in 240x120 320x200
 do
-    c=`echo $f | tr [a-z] [A-Z]`
-    $IM_CONVERT -size 240x120 xc:Green -font Times-Bold -pointsize 64 \
-                -fill white -stroke black -strokewidth 1 -gravity center \
-                -annotate 0 "$c"  $TEST_OUTPUT_DIR/$TEST_SAMPLE_Format.$f
+    for f in jpg png gif webp tiff heic avif;
+    do
+        c=`echo $f | tr [a-z] [A-Z]`
+        $IM_CONVERT -size $s  xc:Green -font Times-Bold -pointsize 64 \
+                    -fill white -stroke black -strokewidth 1 -gravity center \
+                    -annotate 0 "$c"  $OUTPUT_FORMAT_DIR/$s.$f
+    done
 done
