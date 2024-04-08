@@ -8,3 +8,11 @@ $IM_CONVERT -size 100x75 -font .New-York-Italic -pointsize 64 \
     -append -depth 1 -strip $TEST_OUTPUT_DIR/$TEST_SAMPLE_RGBY.png
 
 $IM_CONVERT $TEST_OUTPUT_DIR/$TEST_SAMPLE_RGBY.png $TEST_OUTPUT_DIR/$TEST_SAMPLE_RGBY.jpg
+
+for f in jpg png gif webp ;
+do
+    c=`echo $f | tr [a-z] [A-Z]`
+    $IM_CONVERT -size 240x120 xc:Green -font Times-Bold -pointsize 64 \
+                -fill white -stroke black -strokewidth 1 -gravity center \
+                -annotate 0 "$c"  $TEST_OUTPUT_DIR/$TEST_SAMPLE_Format.$f
+done
