@@ -22,3 +22,14 @@ do
                     -annotate 0 "$c"  $OUTPUT_FORMAT_DIR/$s.$f
     done
 done
+
+$IM_CONVERT -size 4096x4096 -depth 8 xc: \
+            -channel Red -fx '(i%256)/255' \
+            -channel Green -fx '(j%256)/255' \
+            -channel Blue -fx '(int(i/256)+int(j/256)*16)/255' \
+            $TEST_OUTPUT_DIR/allcolors.png
+
+for f in jpg gif webp tiff heic avif;
+do
+    $IM_CONVERT $TEST_OUTPUT_DIR/allcolors.png $TEST_OUTPUT_DIR/allcolors.$f
+done
